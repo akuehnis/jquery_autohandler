@@ -5,10 +5,11 @@ Autohandler Plugin for jQuery
 Scans a given container for elements having a *data-autohandler*-attribute. If found, the handler described in the attribute is applied to the element. If elements are added within the container, they are automatically scanned and the handler is applied.
 
 ## Format
-<xxx data-autohandler="event:handler[,event2,handler2]" ...>
+<xxx data-autohandler="event:handler[;event2,handler2]" ...>
 
 event may be click, change, submit, ... whatever
-handler is a function name (string), such as myFunc or myModule.func
+handler is a function name (string), such as "myFunc" or "myModule.func"
+There may be multiple events and handlers, separated by a semicolon.
 
 ## The "now" Event
 There is a special event, called "now". If Autohandler finds such an event, its handler is immediately executed. After that, autohandler removes the handler from the element to make sure it is not executed again.
@@ -17,7 +18,9 @@ There is a special event, called "now". If Autohandler finds such an event, its 
 Autohandler makes complex javascript applications easier to be read and maintained. Handler's are not hidden somewhere in the code but visible to designer and programmer.
 
 ## But why not use the standard handler attributes such as onclick or onsubmit etc?
-With autohandler, all event functions have exactely the same arguments. The "this"-Variable contains the calling object. On the other hand, using the standard onClick attributes, "this" points to window.
+There are two reasons for using autohandler instead of inline handlers. First, inline handlers have a different behavior regarding the "this"-variable. When an inline handler is called, "this" refers to the window. In a handler called via "addEventListener" or jQuery "this" refers to the calling object.
+
+The second reason: If you are developing native apps with HTML and Javascript, inline handlers may not be executed at all.
 
 # Example
 ```
