@@ -44,7 +44,7 @@
                 }
                 */
             }else{
-                console.log('autohandler not found: ' + contex[func]);
+                console.log('autohandler not found: ' + context[func]);
             }
         }
     }
