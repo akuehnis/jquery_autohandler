@@ -26,7 +26,7 @@
             for(var j = 0; j < namespaces.length; j++) {
                 context = context[namespaces[j]];
             }
-            if (typeof context[func] === 'function') {
+            if (undefined != context && typeof context[func] === 'function') {
                 if ('now' == a[0]) {
                     context[func].call(element);
                     element.dataset.autohandler = element.dataset.autohandler.replace(h, '');
