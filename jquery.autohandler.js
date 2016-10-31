@@ -12,6 +12,7 @@
         }else{
             var aHandler = [handler];
         }
+        $(element).off();
         for (var i=0; i< aHandler.length; i++){
             var h = aHandler[i];
             if ('' == h) continue;
@@ -32,7 +33,7 @@
                     element.dataset.autohandler = element.dataset.autohandler.replace(h, '');
                 } 
                 else {
-                    $(element).off().on(a[0], context[func]);
+                    $(element).on(a[0], context[func]);
                 }
                 /*
                 else if(element.addEventListener) {
