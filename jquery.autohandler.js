@@ -21,6 +21,10 @@
             if('click' == a[0] && $.mobile){
                 a[0] = 'vclick';
             }
+            if (undefined == a[1]) {
+                console.log('autohandler namespace not found: ' + h);
+                continue;
+            }
             var namespaces = a[1].split(".");
             var context = window;
             var func = namespaces.pop();
