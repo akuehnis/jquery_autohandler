@@ -5,7 +5,7 @@ Autohandler Plugin for jQuery
 Scans a given container for elements having a *data-autohandler*-attribute. If found, the handler described in the attribute is applied to the element. If elements are added within the container, they are automatically scanned and the handler is applied.
 
 ## Format
-<xxx data-autohandler="event:handler[;event2,handler2]" ...>
+<xxx data-autohandler="event:handler[;event2:handler2]" ...>
 
 event may be click, change, submit, ... whatever
 handler is a function name (string), such as "myFunc" or "myModule.func"
